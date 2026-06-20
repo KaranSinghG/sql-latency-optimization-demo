@@ -1,5 +1,7 @@
 package com.demo.sqlOptimization.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ public class Order {
     String description;
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
+    @JsonIgnoreProperties("orders")
     Customer customer;
 
     public Order() {

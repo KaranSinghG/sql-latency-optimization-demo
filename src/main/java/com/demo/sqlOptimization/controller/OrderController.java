@@ -28,6 +28,10 @@ public class OrderController {
     
     @GetMapping("/all")
     public List<Order> getAllOrders() {
-        return orderRepository.findAllWithCustomer();
+        Long t1 = System.currentTimeMillis();
+        List<Order> orders = orderRepository.findAll();
+        Long t2 = System.currentTimeMillis();
+        System.out.println("Time taken by findAll(): " + (t2 - t1) + " ms");
+        return orders;
     }
 }
