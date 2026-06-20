@@ -34,4 +34,8 @@ public class Customer {
     public String getName() {
         return name;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
 }

@@ -9,6 +9,6 @@ import com.demo.sqlOptimization.entities.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @Query("SELECT o FROM Order o JOIN FETCH o.customer")
+    @Query("SELECT o FROM Order o JOIN o.customer")
     List<Order> findAllWithCustomer();
 }
