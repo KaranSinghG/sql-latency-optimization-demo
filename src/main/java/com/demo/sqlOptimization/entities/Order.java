@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -18,15 +19,15 @@ public class Order {
     @Column(name = "description", nullable = false)
     String description;
     @ManyToOne
-    @Column(name = "customer_id", nullable = false)
-    Long customerId;
+    @JoinColumn(name = "customer_id", nullable = false)
+    Customer customer;
 
     public Order() {
     }
 
-    public Order(String description, Long customerId) {
+    public Order(String description, Customer customer) {
         this.description = description;
-        this.customerId = customerId;
+        this.customer = customer;
     }
 
     public Long getId() {
@@ -37,8 +38,8 @@ public class Order {
         return description;
     }
 
-    public Long getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
 }

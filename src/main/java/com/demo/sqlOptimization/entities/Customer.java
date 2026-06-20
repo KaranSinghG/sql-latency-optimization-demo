@@ -16,7 +16,7 @@ public class Customer {
     Long id;
     @Column(name = "name", nullable = false)
     String name;
-    @OneToMany(mappedBy = "customer_id")
+    @OneToMany(mappedBy = "customer")
     List<Order> orders;
 
     public Customer() {

@@ -1,0 +1,14 @@
+package com.demo.sqlOptimization.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.demo.sqlOptimization.entities.Order;
+
+public interface OrderRepository extends JpaRepository<Order, Long> {
+
+    @Query("SELECT o FROM Order o JOIN FETCH o.customer")
+    List<Order> findAllWithCustomer();
+}
